@@ -1,17 +1,38 @@
-import React from 'react';
+//Import Area
+//Import Something from 'somelibrary';
+
+import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//Create an Class Component
+class Myclass extends Component{
+    //1. Property
+    state ={};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    //2. Constructor
+    constructor(props){
+        super(props);
+        this.state.favcolor= "red";
+    }
+
+    //3. Method
+    //Every Method Must have render method
+    changeColor = ()=>{
+       // alert ('ok');
+        this.setState({favcolor: "blue"});
+    };
+    render(){
+        //Render Method always return HTMl
+        return(
+            <div>
+                <h1>My favourite Color is  {this.state.favcolor}</h1>
+                <button  onClick={this.changeColor}>Click Me!</button>
+            </div>
+        );
+    }
+    shouldComponentUpdate(){
+        return true;
+    }
+}
+//Object.Method();
+ReactDOM.render(<Myclass/>,document.getElementById('root'));//Actual Argument
